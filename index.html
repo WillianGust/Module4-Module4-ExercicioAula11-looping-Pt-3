@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <script>
+      valor_clientes = [];
+      quantidade_clientes = parseInt(
+        prompt("Informe quantidade de clientes: ")
+      );
+      for (number = 0; number < quantidade_clientes; number++) {
+        let cliente = prompt("Digite nome do cliente: " + (number + 1));
+        var sexo = prompt(
+          "Digite sexo cliente 1\nM (Masculino)\nF (Feminino) "
+        );
+        var s_sexo = sexo.trim().toUpperCase() == "M" ? "M" : "F";
+        var sexo_mostra = s_sexo == "M" ? "do" : "da";
+        var valor = Number(
+          prompt("Digite o valor " + sexo_mostra + " " + cliente)
+        );
+        valor_clientes.push(valor);
+        // var valor_total = valor_clientes.reduce((a, b) => {
+        //   return a + b;
+        // });
+      }
+
+      //Logica para adicionar os valores dentro do array
+      media = 0;
+      for (i = 0; i < valor_clientes.length; i++) {
+        media += valor_clientes[i];
+      }
+      media = media / valor_clientes.length;
+
+      // var media = valor_total / valor_clientes.length;
+      if (media > 100) {
+        document.write(
+          "Parabens a media obtida foi de " + media + " maior que 100 "
+        );
+      } else if ((media > 50) & (media < 100)) {
+        document.write(
+          "50, media considerada a melhorar o desempenho, nessa caso foi de : " +
+            media
+        );
+      } else if (media > 20 && media < 50) {
+        document.write(
+          "Muito bem ainda dentro de uma media considerada boa, mas precisa melhora pois tem : " +
+            media
+        );
+      } else {
+        document.write(
+          " Pessoal, isso que voces querem realmente com essa media de : " +
+            media
+        );
+      }
+    </script>
+  </body>
+</html>
